@@ -1440,133 +1440,13 @@
 
     <!-- サブタブ -->
     <div class="cbrne-tabs">
-      <button class="ctab active" style="border-color:var(--accent-teal);color:var(--accent-teal)" onclick="showPat('p', this)">P 末梢循環</button>
-      <button class="ctab" onclick="showPat('a', this)">A 気道</button>
-      <button class="ctab" onclick="showPat('t', this)">T 処置優先順位</button>
-      <button class="ctab" onclick="showPat('secondary', this)">🔄 二次トリアージ</button>
+      <button class="ctab active" style="border-color:var(--accent-teal);color:var(--accent-teal)" onclick="showPat('secondary', this)">🔄 二次トリアージ</button>
       <button class="ctab" onclick="showPat('flow', this)">📊 判断フロー</button>
 
     </div>
 
-    <!-- P: 末梢循環 -->
-    <div id="pat-p" class="cbrne-panel active">
-      <div class="cbrne-panel-header" style="border-left:4px solid var(--accent-teal)">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--accent-teal);line-height:1">P</div>
-        <div>
-          <div class="cbrne-panel-title">Perfusion — 末梢循環評価</div>
-          <div class="cbrne-panel-sub">ショックの有無を素早く判断する。外出血があれば止血を最優先。</div>
-        </div>
-      </div>
-      <div class="cbrne-body">
-        <div class="cbrne-col">
-          <div class="cbrne-group-label">🩸 評価項目</div>
-          <ul class="checklist">
-            <li><strong>橈骨動脈の触知</strong>：触れない = 収縮期血圧 &lt;80mmHg 相当 → ショック疑い</li>
-            <li><strong>CRT（毛細血管再充満時間）</strong>：爪床圧迫後 2秒以上で戻らない → ショック疑い</li>
-            <li>皮膚色（蒼白・チアノーゼ）・冷感・湿潤の確認</li>
-            <li>外出血の有無と程度（衣服の中も確認）</li>
-          </ul>
-          <div class="cbrne-group-label" style="margin-top:1rem">⚠️ ショックの判断基準</div>
-          <div style="display:flex;flex-direction:column;gap:0.4rem;margin-top:0.5rem">
-            <div style="padding:0.5rem 0.75rem;background:rgba(229,57,53,0.08);border-left:3px solid #e53935;border-radius:4px;font-size:0.82rem"><strong style="color:#e53935">代償性ショック</strong>：CRT延長・冷汗・不安感、血圧はまだ保たれている</div>
-            <div style="padding:0.5rem 0.75rem;background:rgba(229,57,53,0.15);border-left:3px solid #e53935;border-radius:4px;font-size:0.82rem"><strong style="color:#e53935">非代償性ショック</strong>：橈骨動脈触知不能・意識低下・血圧低下 → 即赤タグ</div>
-          </div>
-        </div>
-        <div class="cbrne-col">
-          <div class="cbrne-group-label">🚨 対応</div>
-          <ul class="checklist">
-            <li>外出血 → 直接圧迫止血を最優先（止血前に他の評価を進めない）</li>
-            <li>四肢の大量出血 → ターニケット（止血帯）を使用。装着時刻を記録。</li>
-            <li>内出血疑い（腹部膨満・骨盤不安定）→ 静脈路確保・搬送急ぎ</li>
-            <li>ショック体位（下肢挙上）※頭部外傷・呼吸困難を除く</li>
-            <li>保温（低体温はショックを悪化させる）</li>
-          </ul>
-          <div class="cbrne-group-label" style="margin-top:1rem">📌 記録すること</div>
-          <ul class="checklist">
-            <li>橈骨動脈：あり / なし</li>
-            <li>CRT：___秒</li>
-            <li>外出血部位・止血方法・ターニケット装着時刻</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- A: 気道 -->
-    <div id="pat-a" class="cbrne-panel">
-      <div class="cbrne-panel-header" style="border-left:4px solid var(--accent-blue)">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--accent-blue);line-height:1">A</div>
-        <div>
-          <div class="cbrne-panel-title">Airway — 気道評価</div>
-          <div class="cbrne-panel-sub">気道の開通と維持を確認。頸椎損傷の可能性を常に念頭に置く。</div>
-        </div>
-      </div>
-      <div class="cbrne-body">
-        <div class="cbrne-col">
-          <div class="cbrne-group-label">🔍 評価手順</div>
-          <ul class="checklist">
-            <li><strong>話せるか？</strong> → 発話可能 = 気道開通（最も簡単な確認法）</li>
-            <li>異常呼吸音の確認：喘鳴（狭窄）・いびき音（舌根沈下）・ゴロゴロ音（分泌物）</li>
-            <li>胸郭の動きを視認（左右差・奇異呼吸の有無）</li>
-            <li>口腔内の異物・嘔吐物・血液の確認</li>
-            <li>チアノーゼ（口唇・爪床）の有無</li>
-          </ul>
-        </div>
-        <div class="cbrne-col">
-          <div class="cbrne-group-label">🚨 気道確保の手技</div>
-          <ul class="checklist">
-            <li><strong>用手気道確保</strong>：頭部後屈あご先挙上法（頸椎損傷疑い → 下顎挙上法のみ）</li>
-            <li><strong>異物除去</strong>：指拭い・バッグバルブマスク・吸引器</li>
-            <li><strong>エアウェイ挿入</strong>：口咽頭エアウェイ（意識ある患者には使用不可）</li>
-            <li><strong>声門上器具</strong>（LMAなど）：専門資格者が実施</li>
-            <li><strong>気管挿管</strong>：医師・救急救命士（特定行為）が実施</li>
-          </ul>
-          <div style="margin-top:0.75rem;padding:0.6rem 0.75rem;background:rgba(255,109,0,0.08);border:1px solid rgba(255,109,0,0.3);border-radius:6px;font-size:0.82rem">
-            ⚠️ 頸椎損傷が疑われる場合は<strong>頭頸部を動かさず</strong>、用手で頸部固定しながら気道確保を行う
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- T: 処置 -->
-    <div id="pat-t" class="cbrne-panel">
-      <div class="cbrne-panel-header" style="border-left:4px solid var(--accent-orange)">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--accent-orange);line-height:1">T</div>
-        <div>
-          <div class="cbrne-panel-title">Treatment — 処置の優先順位</div>
-          <div class="cbrne-panel-sub">MARCHの順で生命維持に必要な最低限の処置を行い、速やかに搬送。</div>
-        </div>
-      </div>
-      <div class="cbrne-body">
-        <div class="cbrne-col">
-          <div class="cbrne-group-label">✅ 現場でできる処置（優先順に）</div>
-          <ul class="checklist">
-            <li><strong>M — 止血</strong>：直接圧迫・ターニケット・止血剤（ヘモスタティックガーゼ）</li>
-            <li><strong>A — 気道確保</strong>：用手・エアウェイ・体位（回復体位）</li>
-            <li><strong>R — 換気補助</strong>：BVM換気・緊張性気胸の減圧（胸腔穿刺）</li>
-            <li><strong>C — 循環確保</strong>：静脈路確保・輸液（permissive hypotension）</li>
-            <li><strong>H — 保温</strong>：毛布・アルミ保温シート・濡れた衣服の除去</li>
-          </ul>
-        </div>
-        <div class="cbrne-col">
-          <div class="cbrne-group-label">⛔ 現場ではやらないこと</div>
-          <ul class="checklist">
-            <li>時間のかかる詳細な身体診察（現場では最低限）</li>
-            <li>ルート確保に時間をかけすぎる（2回失敗したら搬送）</li>
-            <li>過剰輸液（内出血が増悪する可能性）</li>
-            <li>脊椎固定による搬送遅延（出血性ショックが優先）</li>
-          </ul>
-          <div class="cbrne-group-label" style="margin-top:1rem">🚑 搬送先の選定基準</div>
-          <ul class="checklist">
-            <li><span style="color:#e53935;font-weight:700">赤</span>：3次救急（高度救命救急センター）</li>
-            <li><span style="color:#ffd600;font-weight:700">黄</span>：2次救急（救命救急センター）</li>
-            <li><span style="color:#00c853;font-weight:700">緑</span>：1次・2次救急（かかりつけ含む）</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
     <!-- 二次トリアージ -->
-    <div id="pat-secondary" class="cbrne-panel">
+    <div id="pat-secondary" class="cbrne-panel active">
       <div class="cbrne-panel-header" style="border-left:4px solid var(--accent-purple)">
         <div style="font-size:2rem;width:60px;text-align:center">🔄</div>
         <div>
